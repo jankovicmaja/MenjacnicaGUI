@@ -175,6 +175,12 @@ public class MenjacnicaGUI extends JFrame {
 		panel.add(btnDodaj, gbc_btnDodaj);
 		
 		JButton btnNewButton = new JButton("Obrisi kurs");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ObrisiKursGUI ok=new ObrisiKursGUI();
+				ok.setVisible(true);
+			}
+		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton.gridx = 0;
@@ -182,6 +188,12 @@ public class MenjacnicaGUI extends JFrame {
 		panel.add(btnNewButton, gbc_btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Izvr\u0161i zamenu");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IzvrsiZamenuGUI iz=new IzvrsiZamenuGUI();
+				iz.setVisible(true);
+			}
+		});
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.gridx = 0;
 		gbc_btnNewButton_1.gridy = 2;
@@ -252,16 +264,28 @@ public class MenjacnicaGUI extends JFrame {
 		JMenuItem mntmDodajKurs = new JMenuItem("Dodaj kurs");
 		mntmDodajKurs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DodajKursGUI dk=new DodajKursGUI();
-				dk.setVisible(true);
+				ObrisiKursGUI ok=new ObrisiKursGUI();
+				ok.setVisible(true);
 			}
 		});
 		popupMenu.add(mntmDodajKurs);
 		
 		JMenuItem mntmObrisiKurs = new JMenuItem("Obrisi kurs");
+		mntmObrisiKurs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ObrisiKursGUI ok=new ObrisiKursGUI();
+				ok.setVisible(true);
+			}
+		});
 		popupMenu.add(mntmObrisiKurs);
 		
 		JMenuItem mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
+		mntmIzvrsiZamenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IzvrsiZamenuGUI iz=new IzvrsiZamenuGUI();
+				iz.setVisible(true);
+			}
+		});
 		popupMenu.add(mntmIzvrsiZamenu);
 	}
 
