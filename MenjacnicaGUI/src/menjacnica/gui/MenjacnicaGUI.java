@@ -35,6 +35,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 
 import javax.swing.JScrollBar;
 import javax.swing.border.TitledBorder;
@@ -91,12 +92,22 @@ public class MenjacnicaGUI extends JFrame {
 		mntmOpen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle("Izaberite fajl: ");
-				fc.showOpenDialog(fc);
-				if (fc.getSelectedFile() != null) {
-					MenjacnicaGUI.getTextArea().append("\n");
-					textArea.append("Uèitan fajl: " + fc.getSelectedFile().getAbsolutePath());
+
+				String tekst = textArea.getText();
+
+				if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+
+					File f = fc.getSelectedFile();
+
+					if (tekst.isEmpty()) {
+						textArea.setText("Ucitan fajl: " + f.getName() + ", gde " + f.getAbsolutePath()
+								+ " predstavlja putanju na disku do fajla.");
+					} else {
+						textArea.setText(tekst + "\n" + "Ucitan fajl: " + f.getName() + ", gde "
+								+ f.getAbsolutePath() + " predstavlja putanju na disku do fajla.");
+					}
 				}
+
 			}
 		});
 
